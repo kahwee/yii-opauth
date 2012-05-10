@@ -19,7 +19,6 @@ return array(
 	'modules' => array(
 		'opauth' => array(
 			'opauthParams' => array(
-				'Security.salt' => 'dezoupiz2zalty',
 				'strategies' => array(
 					'facebook' => array(
 						'app_id' => 'YOUR_FACEBOOK_APP_ID',
