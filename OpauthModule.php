@@ -11,7 +11,7 @@ class OpauthModule extends CWebModule {
 		$path = Yii::app()->createUrl($this->id) . '/';
 		if ($_SERVER['REQUEST_URI'] != $path . 'callback') {
 			$this->opauthParams['path'] = $path;
-			$this->opauthParams['callback_uri'] = '{path}callback';
+			$this->opauthParams['Callback.uri'] = '{path}callback';
 			$opauth = new Opauth($this->opauthParams);
 		}
 	}
