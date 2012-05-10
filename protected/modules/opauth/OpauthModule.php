@@ -18,14 +18,18 @@ class OpauthModule extends CWebModule {
 			}
 		}
 		$path = Yii::app()->createUrl($this->id) . '/';
-		$opauth = new Opauth(array(
-			'Security.salt' => $this->securitySalt,
-			'Security.iteration' => $this->securityIteration,
-			'Security.timeout' => $this->securityTimeout,
-			'debug' => $this->debug,
-			'path' => $path,
-			'strategies' => $this->strategies,
-		));
+		if ($_SERVER['REQUEST_URI'] != $path . 'callback') {
+			$opauth = new Opauth(array(
+				'Security.salt' => $this->securitySalt,
+				'Security.iteration' => $this->securityIteration,
+				'Security.timeout' => $this->securityTimeout,
+				'debug' => $this->debug,
+				'path' => $path,
+				'callback_uri' => '{path}callback',
+				'callback_transport' => 'post',
+				'strategies' => $this->strategies,
+			));
+		}
 	}
 
 	public function beforeControllerAction($controller, $action) {
