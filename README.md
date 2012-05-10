@@ -8,8 +8,6 @@ How to make it work
 
 Deploy it by placing it the whole opauth directory into `protected/modules/opauth`.
 
-The module can be found in https://github.com/kahwee/yii-opauth/tree/master/protected/modules/opauth
-
 And in your `./protected/config/main.php`, add `opauth` to begin:
 
 ```php
@@ -19,6 +17,7 @@ return array(
 	'modules' => array(
 		'opauth' => array(
 			'opauthParams' => array(
+				'Security.salt' => 'LDFmiilYf8Fyw5W10rx4W1KsVrieQCnpBzzpTBWA5vJidQKDx8pMJbmw28R1C4m',
 				'strategies' => array(
 					'facebook' => array(
 						'app_id' => 'YOUR_FACEBOOK_APP_ID',
