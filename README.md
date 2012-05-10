@@ -8,6 +8,8 @@ How to make it work
 
 Deploy it by placing it the whole opauth directory into `protected/modules/opauth`.
 
+The module can be found in https://github.com/kahwee/yii-opauth/tree/master/protected/modules
+
 And in your `./protected/config/main.php`, add `opauth` to begin:
 
 ```php
