@@ -20,12 +20,14 @@ return array(
 
 	'modules'=>array(
 		'opauth' => array(
-			'securitySalt' => 'dezoupiz2zalty',
-			'strategies' => array(
-				'facebook' => array(
-					'app_id' => 'YOUR_FACEBOOK_APP_ID',
-					'app_secret' => 'YOUR_FACEBOOK_APP_SECRET',
-				)
+			'opauthParams' => array(
+				'Security.salt' => 'dezoupiz2zalty',
+				'strategies' => array(
+					'facebook' => array(
+						'app_id' => 'YOUR_FACEBOOK_APP_ID',
+						'app_secret' => 'YOUR_FACEBOOK_APP_SECRET',
+					)
+				),
 			),
 		),
 		'gii'=>array(
