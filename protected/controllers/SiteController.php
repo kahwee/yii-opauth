@@ -21,24 +21,6 @@ class SiteController extends Controller
 		);
 	}
 
-	public function actionAuth() {
-		Yii::import('ext.Opauth.Opauth');
-		$opauth = new Opauth(array(
-			'Security.salt' => 'dezoupiz2zalty',
-			'path' => '/site/auth/',
-			'strategies' => array(
-				'facebook' => array(
-					'app_id' => '185129578260200',
-					'app_secret' => 'bd88fe3aba61c3189e1e9ed44f550f5b',
-					#'redirect_uri' => 'http://yii-opauth.internal.kw.sg',
-				)
-			)
-		));
-		var_dump($opauth);
-
-		exit;
-	}
-
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
