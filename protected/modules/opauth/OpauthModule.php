@@ -3,6 +3,8 @@
 class OpauthModule extends CWebModule {
 
 	public $securitySalt;
+	public $securityIteration = 300;
+	public $securityTimeout = '2 minutes';
 	public $strategies;
 	public $debug;
 
@@ -11,12 +13,16 @@ class OpauthModule extends CWebModule {
 			'opauth.vendors.Opauth.Opauth',
 		));
 		if (is_null($this->debug)) {
-
+			if (defined('YII_DEBUG')) {
+				$this->debug = true;
+			}
 		}
-		exit;
 		$path = Yii::app()->createUrl($this->id) . '/';
 		$opauth = new Opauth(array(
 			'Security.salt' => $this->securitySalt,
+			'Security.iteration' => $this->securityIteration,
+			'Security.timeout' => $this->securityTimeout,
+			'debug' => $this->debug,
 			'path' => $path,
 			'strategies' => $this->strategies,
 		));
