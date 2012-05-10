@@ -14,8 +14,8 @@ And in your `./protected/config/main.php`, add `opauth` to begin:
 <?php
 return array(
 	...
-  'modules' => array(
-  	'opauth' => array(
+	'modules' => array(
+		'opauth' => array(
 			'securitySalt' => null,
 			'strategies' => array(
 				'facebook' => array(
