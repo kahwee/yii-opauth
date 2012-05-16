@@ -23,7 +23,14 @@ class OpauthStrategy{
  */
 	public $auth;
 	
-	public $name;
+/**
+ * Name of strategy
+ */
+	public $name = null;
+	
+/**
+ * Pointer to Opauth instance
+ */
 	protected $Opauth;
 
 /**
@@ -35,7 +42,12 @@ class OpauthStrategy{
 		$this->Opauth = $Opauth;
 		$this->strategy = $strategy;
 		
-		$this->name = $strategy['name'];
+		// Include some useful values from Opauth's env
+		$this->strategy['_opauth_callback_url'] = $this->Opauth->env['host'].$this->Opauth->env['Callback.uri'];
+		
+		if ($this->name === null){
+			$this->name = (isset($name) ? $name : get_class($this));
+		}
 		
 		if (is_array($this->expects)){
 			foreach ($this->expects as $key){
@@ -108,13 +120,13 @@ class OpauthStrategy{
  */
 	protected function expects($key, $not = null){
 		if (!array_key_exists($key, $this->strategy)){
-			trigger_error($this->name." config value ($key) expected.", E_USER_ERROR);
+			trigger_error($this->name." config parameter for \"$key\" expected.", E_USER_ERROR);
 			exit();
 		}
 		
 		$value = $this->strategy[$key];
 		if (empty($value) || $value == $not){
-			trigger_error($this->name." config value ($key) expected.", E_USER_ERROR);
+			trigger_error($this->name." config parameter for \"$key\" expected.", E_USER_ERROR);
 			exit();
 		}
 		
