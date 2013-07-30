@@ -1,0 +1,32 @@
+{
+    "name": "kahwee/yii-opauth",
+    "description": "Opauth for Yii Framework",
+    "keywords":["opauth", "yii"],
+    "version": "0.1.0-dev",
+    "type": "library",
+    "homepage": "https://github.com/kahwee/yii-opauth",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "KahWee Teng",
+            "email": "t@kw.sg",
+            "homepage": "http://i.justrealized.com/",
+            "role": "developer"
+        },
+        {
+            "name": "Yiorgos Tavantzopoulos",
+            "email": "g.tavantzopoulos@gmail.com",
+            "homepage": "http://code-junkie.net/blog/",
+            "role": "developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/kahwee/yii-opauth/issues"
+    },
+    "require": {
+        "opauth/opauth": "dev-1.0-deps"
+    },
+    "suggests": {
+        "yiisoft/yii": "dev-master"
+    }
+}
